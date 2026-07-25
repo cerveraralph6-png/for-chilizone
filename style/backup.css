@@ -1,0 +1,466 @@
+        /* ==========================================================================
+           Reset & Base Styles
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            /* Blends a dark overlay on top of the background image */
+            background: linear-gradient(rgba(34, 34, 34, 0.65), rgba(34, 34, 34, 0.4)), 
+                        url('../image_resources/bg_main.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Anchor target adjustment for sticky header */
+        #events-furn {
+            scroll-margin-top: 80px; 
+        }
+
+        /* ==========================================================================
+           Header & Navigation
+           ========================================================================== */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        #nav-selection ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        #nav-selection a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        #nav-selection a:hover {
+            color: #e11d48;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            
+        }
+
+        /* ==========================================================================
+           Hero Section (Container 1)
+           ========================================================================== */
+        #container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            align-items: center;
+            height: 90vh;
+        }
+
+        #title {
+            flex: 1 1 500px;
+        }
+
+        #title h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            font-weight: 800;
+        }
+
+        #title p {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            max-width: 500px;
+        }
+
+        /* Location Selection */
+        #location-selection {
+            flex: 1 1 350px;
+            background-color: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        #location-selection h1 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        #location-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        #location-container button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        #location-container button:hover {
+            background-color: #ffffff;
+            color: #0f172a;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        #location-container button:active {
+            transform: scale(0.98);
+        }
+
+        /* ==========================================================================
+           Container 2 (Main white wrapper)
+           ========================================================================== */
+        #container2 {
+            background-color: #ffffff; /* Contrast against the dark hero image */
+            padding: 6rem 5%;
+        }
+
+        #container2 > h1 {
+            font-size: 2.5rem;
+            color: #0f172a;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 800;
+        }
+
+        /* Best Selling Grid */
+        #best-selling-furniture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto 6rem auto;
+        }
+
+        .best-selling-furniture-item {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .best-selling-furniture-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .best-selling-furniture-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+        }
+
+        .best-selling-furniture-item h2 {
+            font-size: 1.35rem;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .best-selling-furniture-item p {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .best-selling-furniture-item button {
+            margin-top: auto;
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: #0f172a;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .best-selling-furniture-item button:hover {
+            background-color: #e11d48;
+        }
+
+        /* ==========================================================================
+           Container 3 (Creative Approach / Showcase)
+           ========================================================================== */
+        #container3 {
+            max-width: 1200px;
+            margin: 0 auto 6rem auto;
+            padding-top: 6rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        /* Label header: "creative approach" */
+        #container3 h1:first-of-type {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #e11d48;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Main title header: "Transform your event space" */
+        #container3 h1:nth-of-type(2) {
+            font-size: 2.5rem;
+            color: #0f172a;
+            margin-bottom: 3rem;
+            font-weight: 800;
+        }
+
+        /* Image grid for promotion */
+        #images-event-promotion {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        #images-event-promotion img {
+            flex: 1 1 45%;
+            max-width: 540px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            background-color: #f8fafc;
+            padding: 1.5rem; /* Clean border space around transparent placeholders */
+            border: 1px solid #e2e8f0;
+        }
+
+        #container3 p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        /* ==========================================================================
+           Container 4 (Who We Are & Promo Grid)
+           ========================================================================== */
+        #container4 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 6rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        #container4 > h1 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #e11d48;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        #text-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        #text-container h2 {
+            font-size: 2.25rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        #text-container p {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        /* Step Buttons Container (3-Column Layout) */
+        #btn-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-button {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-button:hover {
+            background-color: #ffffff;
+            border-color: #e11d48;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(225, 29, 72, 0.08);
+        }
+
+        #img-btn {
+            background-color: #fff1f2;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        #img-btn img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
+        .feature-button h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .feature-button p {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           Footer
+           ========================================================================== */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 4rem 5%;
+        }
+
+        #footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        #footer-left, #footer-right {
+            flex: 1 1 300px;
+        }
+
+        footer h1 {
+            color: #f1f5f9;
+            margin-bottom: 1.25rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           Responsive Adjustments
+           ========================================================================== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+                padding: 1.5rem 5%;
+            }
+
+            #nav-selection ul {
+                gap: 1.25rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #container1 {
+                padding: 4rem 1.5rem;
+                gap: 2.5rem;
+            }
+
+            #title h1 {
+                font-size: 2.5rem;
+            }
+
+            #container2 {
+                padding: 4rem 1.5rem;
+            }
+
+            #images-event-promotion img {
+                flex: 1 1 100%;
+                height: 220px;
+            }
+
+            #container3 h1:nth-of-type(2),
+            #text-container h2 {
+                font-size: 2rem;
+            }
+        }
