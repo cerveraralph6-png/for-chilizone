@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chillizone | Blog & Event Styling Tips</title>
+
+    <style>
+        /* ==========================================================================
+           Reset & Base Styles
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            
+        }
+
+        /* ==========================================================================
+           Header & Sticky Navigation (Root Level Paths)
+           ========================================================================== */
+                header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        #nav-selection ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        #nav-selection a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        #nav-selection a:hover {
+            color: #e11d48;
+        }
+
+        #nav-selection li.nav-quote a {
+            background-color: #e11d48;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+
+        /* ==========================================================================
+           Blog Page Header
+           ========================================================================== */
+        #blog-header {
+            text-align: center;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 5rem 5% 4rem 5%;
+        }
+
+        #blog-header h1 {
+            font-size: 2.75rem;
+            color: #0f172a;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        #blog-header p {
+            font-size: 1.15rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ==========================================================================
+           Blog Grid & Post Cards
+           ========================================================================== */
+        #blog-section {
+            padding: 4rem 5% 6rem 5%;
+        }
+
+        #blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Individual Card Wrapper */
+        .blog-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Crop wrapper for consistent card image sizes */
+        .blog-image-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: #f1f5f9;
+        }
+
+        .blog-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image-wrapper img {
+            transform: scale(1.03);
+        }
+
+        /* Text area within card */
+        .blog-card-content {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #e11d48;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .blog-card-content h2 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Styled Read More Button Link */
+        .blog-read-more {
+            margin-top: auto; /* Aligns to bottom of flex wrapper */
+            text-decoration: none;
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+            align-self: flex-start;
+        }
+
+        .blog-read-more span {
+            transition: transform 0.2s ease;
+        }
+
+        .blog-read-more:hover {
+            color: #e11d48;
+        }
+
+        .blog-read-more:hover span {
+            transform: translateX(4px); /* Shifts arrow on hover */
+        }
+
+        /* ==========================================================================
+           Fixed Floating Shopping Cart
+           ========================================================================== */
+        #floating-cart {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1100;
+        }
+
+        #floating-cart a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #e11d48;
+            color: #ffffff;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+
+        #floating-cart a:hover {
+            background-color: #be123c;
+            transform: translateY(-4px);
+        }
+
+        #floating-cart .cart-icon {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        #floating-cart .cart-count {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: #0f172a;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ffffff;
+        }
+
+        /* ==========================================================================
+           Footer
+           ========================================================================== */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 4rem 5%;
+        }
+
+        #footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        #footer-left, #footer-right {
+            flex: 1 1 300px;
+        }
+
+        footer h1 {
+            color: #f1f5f9;
+            margin-bottom: 1.25rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           Responsive Adjustments
+           ========================================================================== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1.25rem;
+                padding: 1.5rem 5%;
+                text-align: center;
+            }
+
+            #nav-selection ul {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            #blog-header {
+                padding: 4rem 1.5rem;
+            }
+
+            #blog-header h1 {
+                font-size: 2.25rem;
+            }
+
+            #blog-section {
+                padding: 3rem 1.5rem;
+            }
+
+            #blog-grid {
+                gap: 1.75rem;
+            }
+
+            #floating-cart {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+            
+            #floating-cart a {
+                width: 50px;
+                height: 50px;
+            }
+
+            #floating-cart .cart-icon {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div id="logo">
+            <!-- Root path connection -->
+            <a href="index.html"><img src="https://www.vhv.rs/dpng/d/449-4492767_transparent-sample-logo-png-png-download.png" alt="Logo"></a>
+        </div>
+
+        <nav id="nav-selection">
+            <ul>
+                <!-- Root path navigation structure -->
+                <li><a href="index.html#events-furn">Events Furniture Hire</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="inspiration.html">Inspiration</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#footer-left">Contact</a></li>
+                <li class="nav-quote"><a href="#">Request a Quote</a></li>
+                <li class="nav-phone"><a href="tel:1300884806">&phone; 1300 88 48 06</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Blog Main Banner Header -->
+        <div id="blog-header">
+            <h1>Our Blog</h1>
+            <p>Style guides, trend updates, and planning inspiration directly from our professional event styling team.</p>
+        </div>
+
+        <!-- Blog Posts Grid Area -->
+        <section id="blog-section">
+            <div id="blog-grid">
+
+                <!-- Blog Card 1 -->
+                <article class="blog-card">
+                    <div class="blog-image-wrapper">
+                        <!-- Standard fallback background asset path -->
+                        <img src="image_resources/bg_main.png" alt="Outdoor Event Lounge Setup">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-date">October 24, 2023</span>
+                        <h2>5 Modern Lounge Trends for Corporate Events</h2>
+                        <p class="blog-excerpt">Discover how creating dedicated comfortable lounge spaces can increase engagement and elevate the overall guest experience at your next gala or conference.</p>
+                        <a href="#" class="blog-read-more">Read More <span>&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 2 -->
+                <article class="blog-card">
+                    <div class="blog-image-wrapper">
+                        <img src="image_resources/bg_main.png" alt="Rustic Dining Furniture Hire">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-date">September 12, 2023</span>
+                        <h2>Choosing the Perfect Seating Layout for Banquets</h2>
+                        <p class="blog-excerpt">From banquet rounds to dramatic long rustic refectory tables, learn how your furniture choices define your spatial planning and flow during seated dinners.</p>
+                        <a href="#" class="blog-read-more">Read More <span>&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 3 -->
+                <article class="blog-card">
+                    <div class="blog-image-wrapper">
+                        <img src="image_resources/bg_main.png" alt="Industrial Event Stools and Bars">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-date">August 28, 2023</span>
+                        <h2>How to Style an Elegant Outdoor Cocktail Space</h2>
+                        <p class="blog-excerpt">Outdoor setups require specialized, sturdy hire elements. We detail how to combine bar stools, tall dry bars, and glowing ambient lighting features seamlessly.</p>
+                        <a href="#" class="blog-read-more">Read More <span>&rarr;</span></a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Shopping Cart -->
+    <div id="floating-cart">
+        <a href="#" aria-label="View Shopping Cart">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count">0</span>
+        </a>
+    </div>
+
+    <footer>
+        <div id="footer-container">
+            <div id="footer-left">
+                <h1>Chillizone</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.</p>
+            </div>
+            <div id="footer-right">
+                <h1>Follow Us</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.</p>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

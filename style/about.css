@@ -1,0 +1,371 @@
+        /* ==========================================================================
+           Reset & Base Styles
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* ==========================================================================
+           Header & Sticky Navigation
+           ========================================================================== */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        #nav-selection ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        #nav-selection a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        #nav-selection a:hover {
+            color: #e11d48;
+        }
+
+        #nav-selection li.nav-quote a {
+            background-color: #e11d48;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        /* ==========================================================================
+           About Us Section Content
+           ========================================================================== */
+        #text-container {
+            background-color: #ffffff;
+            padding: 5rem 5% 6rem 5%;
+        }
+
+        #text-container h1 {
+            font-size: 2.75rem;
+            color: #0f172a;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        /* Flexbox splits page into left image / right text */
+        #text-image-container {
+            display: flex;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        #text-image-container img {
+            flex: 1 1 45%;
+            max-width: 540px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        #text-container-rightside {
+            flex: 1 1 50%;
+        }
+
+        #text-container-rightside h2 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        #text-container-rightside p {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Bullet List styling */
+        #text-container-rightside ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        #text-container-rightside li {
+            position: relative;
+            padding-left: 1.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            text-transform: capitalize;
+        }
+
+        /* Replaces generic bullet points with custom red checks */
+        #text-container-rightside li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #e11d48;
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        /* Action Button */
+        #text-container-rightside button {
+            background-color: #0f172a;
+            color: #ffffff;
+            border: none;
+            padding: 0.85rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        #text-container-rightside button:hover {
+            background-color: #e11d48;
+            transform: translateY(-2px);
+        }
+
+        #text-container-rightside button:active {
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           Affiliate Partners (Container 6)
+           ========================================================================== */
+        #container6 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 5%;
+            text-align: center;
+        }
+
+        #container6 h1 {
+            font-size: 2.25rem;
+            color: #0f172a;
+            margin-bottom: 1.25rem;
+            font-weight: 800;
+        }
+
+        #container6 p {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        #logoimage-partners {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        #logoimage-partners img {
+            max-height: 55px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.55;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        #logoimage-partners img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        /* ==========================================================================
+           Fixed Floating Shopping Cart
+           ========================================================================== */
+        #floating-cart {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1100;
+        }
+
+        #floating-cart a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #e11d48;
+            color: #ffffff;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+
+        #floating-cart a:hover {
+            background-color: #be123c;
+            transform: translateY(-4px);
+        }
+
+        #floating-cart .cart-icon {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        #floating-cart .cart-count {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: #0f172a;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ffffff;
+        }
+
+        /* ==========================================================================
+           Footer
+           ========================================================================== */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 4rem 5%;
+        }
+
+        #footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        #footer-left, #footer-right {
+            flex: 1 1 300px;
+        }
+
+        footer h1 {
+            color: #f1f5f9;
+            margin-bottom: 1.25rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           Responsive Adjustments
+           ========================================================================== */
+        @media (max-width: 992px) {
+            #text-image-container {
+                flex-direction: column;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            #text-image-container img {
+                width: 100%;
+                height: 350px;
+            }
+
+            #text-container-rightside ul {
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1.25rem;
+                padding: 1.5rem 5%;
+                text-align: center;
+            }
+
+            #nav-selection ul {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            #text-container {
+                padding: 4rem 1.5rem;
+            }
+
+            #text-container h1 {
+                font-size: 2.25rem;
+                margin-bottom: 2.5rem;
+            }
+
+            #container6 {
+                padding: 4rem 1.5rem;
+            }
+
+            #container6 h1 {
+                font-size: 1.75rem;
+            }
+
+            #floating-cart {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+            
+            #floating-cart a {
+                width: 50px;
+                height: 50px;
+            }
+
+            #floating-cart .cart-icon {
+                font-size: 1.25rem;
+            }
+        }

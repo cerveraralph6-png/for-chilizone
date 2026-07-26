@@ -35,65 +35,50 @@ main {
 /* ==========================================================================
    Header & Sticky Navigation
    ========================================================================== */
-header {
-    background-color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-#logo img {
-    height: 40px;
-    width: auto;
-    display: block;
-}
+        #logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
 
-#nav-selection ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
+        #nav-selection ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
 
-#nav-selection a {
-    text-decoration: none;
-    color: #475569;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.2s ease;
-}
+        #nav-selection a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
 
-#nav-selection a:hover {
-    color: #e11d48;
-}
+        #nav-selection a:hover {
+            color: #e11d48;
+        }
 
-/* Specific Highlight Buttons in Navbar */
-#nav-selection li.nav-quote a {
-    background-color: #e11d48;
-    color: #ffffff;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-}
+        #nav-selection li.nav-quote a {
+            background-color: #e11d48;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
 
-#nav-selection li.nav-quote a:hover {
-    background-color: #be123c;
-}
-
-#nav-selection li.nav-phone a {
-    color: #0f172a;
-    font-weight: 700;
-}
-
-#nav-selection li.nav-phone a:hover {
-    color: #e11d48;
-}
 
 /* ==========================================================================
    Page Introductory Text
@@ -233,6 +218,75 @@ header {
 
 .product-card button:hover {
     background-color: #e11d48;
+}
+
+
+/* ==========================================================================
+   Fixed Floating Shopping Cart
+   ========================================================================== */
+#floating-cart {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1100; /* Ensures it floats above footer and content elements */
+}
+
+#floating-cart a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #e11d48; /* Red brand accent color */
+    color: #ffffff;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+#floating-cart a:hover {
+    background-color: #be123c; /* Darker red on hover */
+    transform: translateY(-4px); /* Slight lift effect */
+}
+
+#floating-cart .cart-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+#floating-cart .cart-count {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: #0f172a; /* Dark badge color */
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff; /* Creates a clean border boundary on top of the red circle */
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+    #floating-cart {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    
+    #floating-cart a {
+        width: 50px;
+        height: 50px;
+    }
+
+    #floating-cart .cart-icon {
+        font-size: 1.25rem;
+    }
 }
 
 /* ==========================================================================
