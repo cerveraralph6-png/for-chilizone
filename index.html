@@ -8,6 +8,7 @@
     <title>Chillizone | Home</title>
 
     <style>
+
     </style>
 </head>
 <body>
@@ -17,7 +18,14 @@
             <a href="index.html"><img src="https://www.vhv.rs/dpng/d/449-4492767_transparent-sample-logo-png-png-download.png" alt="Logo"></a>
         </div>
 
-        <div id="nav-selection">
+        <!-- Hamburger Icon Toggle Button -->
+        <button id="menu-toggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="nav-selection">
             <ul>
                 <li><a href="#events-furn">Events Furniture Hire</a></li>
                 <li><a href="about.html">Our Story</a></li>
@@ -25,9 +33,9 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="#footer-container">Contact</a></li>
                 <li class="nav-quote"><a href="#">Request a Quote</a></li>
-                <li><a href="#">&phone; 1300 88 48 06</a></li>
+                <li class="nav-phone"><a href="tel:1300884806">&phone; 1300 88 48 06</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
 
     <main>
@@ -41,8 +49,8 @@
             <div id="location-selection">
                 <h1>Select Location</h1>
                 <div id="location-container">
-                    <a href="/items_FH/event_products.html"><button>Melbourne</button></a>
-                    <a href="/items_FH/event_products.html"><button>Sydney</button></a>
+                    <a href="items_FH/event_products.html" class="location-btn">Melbourne</a>
+                    <a href="items_FH/event_products.html" class="location-btn">Sydney</a>
                 </div>
             </div>
         </div>
@@ -98,7 +106,6 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.</p>
                 </div>
                 <div id="btn-container">
-                    <!-- Changed from duplicate IDs to classes for HTML validation -->
                     <div class="feature-button">
                         <div id="img-btn">
                             <img src="https://www.vhv.rs/dpng/d/449-4492767_transparent-sample-logo-png-png-download.png" alt="Logo">
@@ -130,19 +137,17 @@
                     <img src="image_resources/bg_main.png" alt="Indoor category image">
                 </div>
 
-                <!-- Corrected typo "rigth" to "right" -->
                 <div id="right">
                     <h1>outdoor</h1>
                     <img src="image_resources/bg_main.png" alt="Outdoor category image">
                 </div>
             </div>
 
-            <!-- Affiliates Section (Container 6) -->
+            <!-- Affiliate Event Partners -->
             <div id="container6">
                 <h1>Affiliate Event Partners</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quisquam impedit, mollitia quia asperiores consectetur magni perferendis, beatae illum, nemo veniam maiores accusantium fuga. Ut rerum vitae labore! Praesentium, recusandae.</p>
                 <div id="logoimage-partners">
-                    <!-- Added duplicate image cards to illustrate the row look -->
                     <img src="image_resources/bg_main.png" alt="Partner Logo">
                     <img src="image_resources/bg_main.png" alt="Partner Logo">
                     <img src="image_resources/bg_main.png" alt="Partner Logo">
@@ -162,7 +167,27 @@
                 <h1>Follow Us</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.</p>
             </div>
-        </div> <!-- Added missing closing div for footer-container -->
+        </div>
     </footer>
+
+    <!-- JavaScript to toggle hamburger active states -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navSelection = document.getElementById('nav-selection');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('open');
+            navSelection.classList.toggle('active');
+        });
+
+        // Close navigation menu if any of the links inside are clicked
+        const navLinks = document.querySelectorAll('#nav-selection a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('open');
+                navSelection.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

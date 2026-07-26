@@ -61,6 +61,7 @@
         #nav-selection ul {
             list-style: none;
             display: flex;
+            align-items: center;
             gap: 2rem;
         }
 
@@ -82,6 +83,53 @@
             border-radius: 6px;
             font-weight: 600;
             transition: background-color 0.2s ease;
+        }
+
+        #nav-selection li.nav-quote a:hover {
+            background-color: #be123c;
+        }
+
+        #nav-selection li.nav-phone a {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        #nav-selection li.nav-phone a:hover {
+            color: #e11d48;
+        }
+
+        /* Hamburger Toggle Button Style (hidden on desktop) */
+        #menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        #menu-toggle .bar {
+            width: 100%;
+            height: 3px;
+            background-color: #334155;
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Animates the toggle bars into an 'X' shape when open */
+        #menu-toggle.open .bar:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+
+        #menu-toggle.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        #menu-toggle.open .bar:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
         }
 
         /* ==========================================================================
@@ -142,7 +190,11 @@
             gap: 1rem;
         }
 
-        #location-container button {
+        /* Styled location anchor link buttons */
+        #location-container .location-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
             width: 100%;
             padding: 1rem;
             font-size: 1.25rem;
@@ -155,14 +207,14 @@
             transition: all 0.2s ease-in-out;
         }
 
-        #location-container button:hover {
+        #location-container .location-btn:hover {
             background-color: #ffffff;
             color: #0f172a;
             border-color: #ffffff;
             transform: translateY(-2px);
         }
 
-        #location-container button:active {
+        #location-container .location-btn:active {
             transform: scale(0.98);
         }
 
@@ -539,27 +591,73 @@
         /* ==========================================================================
            Responsive Adjustments
            ========================================================================== */
-        @media (max-width: 768px) {
+        /*@media (max-width: 1024px) {
             header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-                padding: 1.5rem 5%;
+                padding: 1rem 5%;
             }
 
             #nav-selection ul {
                 gap: 1.25rem;
-                flex-wrap: wrap;
-                justify-content: center;
+            }
+        }*/
+
+        @media (max-width: 1090px) {
+            header {
+                /* REMOVED: flex-direction: column; to keep the layout horizontal */
+                flex-direction: row; 
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 5%;
+                position: sticky;
+                top: 0;
+            }
+
+            /* Display Hamburger Menu Icon */
+            #menu-toggle {
+                display: flex;
+            }
+
+            /* Absolute mobile navigation drawer layout */
+            #nav-selection {
+                display: none; /* Controlled by toggle JS script */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+                padding: 1.5rem 5%;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            /* When menu has .active toggled via Javascript */
+            #nav-selection.active {
+                display: block;
+            }
+
+            #nav-selection ul {
+                flex-direction: column;
+                gap: 1.25rem;
+                width: 100%;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            #nav-selection li.nav-quote a {
+                display: block;
+                padding: 0.75rem 1rem;
             }
 
             #container1 {
                 padding: 4rem 1.5rem;
                 gap: 2.5rem;
+                height: auto;
+                min-height: calc(100vh - 72px);
             }
 
             #title h1 {
                 font-size: 2.5rem;
+                text-align: center;
             }
 
             #container2 {
@@ -584,5 +682,19 @@
 
             #logoimage-partners {
                 gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #title h1 {
+                font-size: 2rem;
+            }
+
+            #location-selection {
+                padding: 1.75rem;
+            }
+
+            #location-selection h1 {
+                font-size: 1.5rem;
             }
         }
